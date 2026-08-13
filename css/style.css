@@ -540,7 +540,7 @@ section {
 .gform-frame {
   width: 100%;
   border: none;
-  min-height: 1400px;
+  min-height: 3485px;
 }
 
 @media (max-width: 640px) {
