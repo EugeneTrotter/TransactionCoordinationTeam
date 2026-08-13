@@ -28,13 +28,18 @@ function runCalculator() {
   var homePriceInput = document.getElementById("homePrice");
   var closingsInput = document.getElementById("annualClosings");
   var reinvestInput = document.getElementById("reinvestPct");
-  var reinvestValueLabel = document.getElementById("reinvestValue");
+  var homePriceValueLabel = document.getElementById("homePriceValue");
 
   var avgHomePrice = parseFloat(homePriceInput.value) || 0;
   var annualClosings = parseFloat(closingsInput.value) || 0;
   var reinvestPct = parseFloat(reinvestInput.value) || 0;
 
-  reinvestValueLabel.textContent = reinvestPct + "%";
+  // Keep the reinvestment percentage inside a sane 0–100 range even
+  // if someone types outside the bounds
+  if (reinvestPct < 0) reinvestPct = 0;
+  if (reinvestPct > 100) reinvestPct = 100;
+
+  homePriceValueLabel.textContent = formatDollars(avgHomePrice);
 
   // Commission per closing
   var commissionPerClosing = avgHomePrice * COMMISSION_RATE;
@@ -70,9 +75,15 @@ function runCalculator() {
 
   hoursEl.textContent = Math.round(hoursActuallySaved).toLocaleString("en-US") + " hrs";
 
-  netEl.textContent = formatSignedDollars(netIncrease);
-  netEl.classList.remove("positive", "negative");
-  netEl.classList.add(netIncrease >= 0 ? "positive" : "negative");
+  netEl.classList.remove("negative", "message");
+  if (netIncrease < 0) {
+    // Reframe rather than show a discouraging negative dollar figure
+    netEl.textContent = "The Time Is Worth The Money";
+    netEl.classList.add("message");
+  } else {
+    netEl.textContent = formatSignedDollars(netIncrease);
+  }
+  netEl.classList.add("positive");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
