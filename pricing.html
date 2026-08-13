@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — Transaction Coordination Team</title>
+<meta name="description" content="$400 per closing. Flat fee, no retainers. Run your own numbers with the ROI calculator." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="wordmark">Transaction <span>Coordination</span> Team</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pricing.html" aria-current="page">Pricing</a></li>
+      <li><a href="closings.html">Closings</a></li>
+      <li><a href="intake.html" class="nav-cta">Start</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Pricing</span>
+    <h1>One Flat Fee.<br>No Surprises.</h1>
+    <p class="subhead">$400 per closing. No retainers, no subscriptions, no upsells.</p>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="container">
+    <div class="price-statement">
+      <div class="big-price">$400</div>
+      <span class="unit">Per Closing</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-border reveal">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 48px;">
+      <span class="eyebrow" style="margin-bottom:12px;">Run Your Numbers</span>
+      <h2 style="font-size: clamp(28px, 4vw, 40px);">What does a TC actually do for your bottom line?</h2>
+    </div>
+
+    <form id="roiCalculator" class="calculator" onsubmit="return false;">
+      <div class="calc-inputs">
+        <span class="calc-title">Your Numbers</span>
+
+        <div class="field">
+          <label for="homePrice">Average Home Price</label>
+          <div class="prefix-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="homePrice" min="0" step="1000" value="350000" inputmode="numeric" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="annualClosings">Annual Closings</label>
+          <input type="number" id="annualClosings" min="0" step="1" value="24" inputmode="numeric" />
+        </div>
+
+        <div class="field">
+          <label for="reinvestPct">Percentage of Reclaimed Time Reinvested Into Selling — <span class="field-value" id="reinvestValue">50%</span></label>
+          <input type="range" id="reinvestPct" min="0" max="100" step="1" value="50" />
+        </div>
+      </div>
+
+      <div class="calc-outputs">
+        <span class="calc-title">Projected Impact</span>
+
+        <div class="readout">
+          <div class="label">Projected Annual Earnings</div>
+          <div class="value" id="outProjectedEarnings">$0</div>
+        </div>
+
+        <div class="readout">
+          <div class="label">Hours Saved Per Week</div>
+          <div class="value" id="outWeeklyHours">0.0 hrs</div>
+        </div>
+
+        <div class="readout">
+          <div class="label">Net Increase vs. Today</div>
+          <div class="value" id="outNetIncrease">$0</div>
+          <div class="note">Reinvested time converts to closings at your current rate of production.</div>
+        </div>
+      </div>
+    </form>
+
+    <p class="calc-disclaimer">Based on a 3% average commission, 15 hours reclaimed per closing, and a 50-week working year. For illustration only — actual results vary.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-brand"><strong>Transaction Coordination Team</strong> — Buy Back Your Time.</p>
+    <ul class="footer-links">
+      <li><a href="closings.html">Closings</a></li>
+      <li><a href="intake.html">Start</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calculator.js"></script>
+</body>
+</html>
