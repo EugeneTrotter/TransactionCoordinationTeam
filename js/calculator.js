@@ -45,8 +45,7 @@ function runCalculator() {
   // Time reclaimed by handing off transaction coordination
   var totalHoursReclaimed = annualClosings * HOURS_SAVED_PER_CLOSING;
   var reinvestedHours = totalHoursReclaimed * (reinvestPct / 100);
-  var hoursActuallySaved = totalHoursReclaimed - reinvestedHours;
-  var weeklyHoursSaved = hoursActuallySaved / WORKING_WEEKS;
+  var hoursActuallySaved = totalHoursReclaimed - reinvestedHours; // yearly figure
 
   // Reinvested time converts to additional closings at the agent's
   // current rate of production
@@ -64,12 +63,12 @@ function runCalculator() {
 
   // ---- Render the 3 required outputs ----
   var earningsEl = document.getElementById("outProjectedEarnings");
-  var hoursEl = document.getElementById("outWeeklyHours");
+  var hoursEl = document.getElementById("outYearlyHours");
   var netEl = document.getElementById("outNetIncrease");
 
   earningsEl.textContent = formatDollars(projectedEarnings);
 
-  hoursEl.textContent = weeklyHoursSaved.toFixed(1) + " hrs";
+  hoursEl.textContent = Math.round(hoursActuallySaved).toLocaleString("en-US") + " hrs";
 
   netEl.textContent = formatSignedDollars(netIncrease);
   netEl.classList.remove("positive", "negative");
