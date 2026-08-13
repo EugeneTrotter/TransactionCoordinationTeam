@@ -1093,3 +1093,49 @@ a.contact-value:hover {
   color: var(--text-secondary);
   font-size: 15px;
 }
+
+/* ============================================================
+   STILL-BUILDING (EASTER EGG) PAGE
+   ============================================================ */
+
+.placeholder-photo-frame {
+  max-width: 560px;
+  margin: 8px auto 18px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  background: var(--bg-elevated);
+}
+
+.placeholder-photo-caption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.note-copy {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.note-copy p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.note-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.note-signoff {
+  max-width: 620px;
+  margin: 40px auto 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
